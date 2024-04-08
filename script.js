@@ -5,15 +5,19 @@ const listaCompleta = document.querySelector('.list-tasks')
 let minhaListaDeItens = []
 
 function adicionarNovaTarefa() {
-  minhaListaDeItens.push({
-    tarefa: input.value,
-    concluida: false,
-  })
+  if (input.value.trim() !== '') {
+    minhaListaDeItens.push({
+      tarefa: input.value,
+      concluida: false,
+    });
+    
+    input.value = '';
 
-  input.value = ''
-
-  mostrarTarefas()
+    mostrarTarefas();
+  }
 }
+
+
 
 function mostrarTarefas() {
   let novaLi = ''
@@ -36,6 +40,14 @@ function mostrarTarefas() {
 
   localStorage.setItem('lista', JSON.stringify(minhaListaDeItens))
 }
+
+input.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    
+    adicionarNovaTarefa()
+  }
+});
 
 function concluirTarefa(posicao) {
   minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida
