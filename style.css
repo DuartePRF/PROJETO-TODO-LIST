@@ -7,6 +7,7 @@
     font-weight: 700;
     font-style: normal;
     outline: none;
+    user-select: none;
 }
 
 body{
@@ -19,6 +20,7 @@ body{
     border-radius: 10px;
     padding: 20px;
     margin: 100px auto 0;
+    opacity: 0.8;
 }
 
 .input-task {
@@ -33,7 +35,7 @@ body{
     border: none;
     border-radius: 5px;
     height: 35px;
-    background-color: #003329;
+    background-color: #01362c;
     color: white;
     font-size: 17px;
     padding: 0 15px;
@@ -66,7 +68,9 @@ body{
     padding: 0 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-    cursor: pointer;
+    cursor: pointer;   
+    transition: background 0.1s ease-out;
+
 }
 
 img {
@@ -77,6 +81,10 @@ img {
 
 .task:hover img{
     opacity: 1;
+}
+
+.task:active {
+    background-color: #e6e6e6;
 }
 
 .done {
