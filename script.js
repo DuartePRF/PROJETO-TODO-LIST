@@ -4,6 +4,13 @@ const listaCompleta = document.querySelector('.list-tasks')
 
 let minhaListaDeItens = []
 
+input.addEventListener('input', function(event) {
+  if (input.value.length > 35) {
+    input.value = input.value.slice(0, 35);
+  }
+});
+
+
 function adicionarNovaTarefa() {
   if (input.value.trim() !== '') {
     minhaListaDeItens.push({
